@@ -14,10 +14,9 @@ import (
 )
 
 type Unleash struct {
-	unleash unleash.Client
 }
 
-func InitUnleash(config structs.UnleashConfig) {
+func InitUnleash(config structs.UnleashConfig) *Unleash {
 	memory.SetVariables(
 		config.AppEnvironment,
 		config.LoggingLevel,
@@ -32,10 +31,11 @@ func InitUnleash(config structs.UnleashConfig) {
 		UnleashAuthorizationToken: config.UnleashAuthorizationToken,
 	}); err != nil {
 		logrus.Errorf("Unable to start connection to unleash, error: %v", err)
-		return
+		return nil
 	}
 
-	logrus.Infof("The unleash configuration was successful, using the %v environment", "")
+	logrus.Infof("The unleash configuration was successful, using the %v environment", memory.APP_ENV_AppEnvironment)
+	return &Unleash{}
 }
 
 func (u *Unleash) IsEnabled(flagName string) bool {
@@ -45,7 +45,10 @@ func (u *Unleash) IsEnabled(flagName string) bool {
 		composedFlag = fmt.Sprintf("%v-%v", memory.APP_ENV_AppEnvironment, flagName)
 	}
 
-	return u.unleash.IsEnabled(composedFlag)
+	isEnabled := unleash.IsEnabled(composedFlag)
+	logrus.Infof("Checked %v, Enabled: %v", composedFlag, isEnabled)
+
+	return isEnabled
 }
 
 func (u *Unleash) IsEnabledContext(flagName string, ctx context.Context) bool {
@@ -55,5 +58,8 @@ func (u *Unleash) IsEnabledContext(flagName string, ctx context.Context) bool {
 		composedFlag = fmt.Sprintf("%v-%v", memory.APP_ENV_AppEnvironment, flagName)
 	}
 
-	return u.unleash.IsEnabled(composedFlag, unleash.WithContext(ctx))
+	isEnabled := unleash.IsEnabled(composedFlag, unleash.WithContext(ctx))
+	logrus.Infof("Checked %v, Enabled: %v", composedFlag, isEnabled)
+
+	return isEnabled
 }
