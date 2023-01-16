@@ -41,6 +41,6 @@ func getLoggerLevel() logrus.Level {
 	case "error":
 		return logrus.ErrorLevel
 	default:
-		return logrus.DebugLevel
+		return logrus.InfoLevel
 	}
 }
