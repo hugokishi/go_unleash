@@ -37,7 +37,7 @@ func  main() {
 
 ## Parameters:
 | Parameter | Description | Value |
-| ------------- |:--------:| ------------- |
+| :-------------: |:--------:| :-------------: |
 | AppEnvironment | Refers to the environment that unleash is being configured for  | local, development, staging, production
 | AppName | Refers to the name that will be registered in unleash | Defined by User |
 | UnleashURL | Refers to the url of connection with unleash | Defined by User |
