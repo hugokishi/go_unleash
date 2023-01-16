@@ -11,12 +11,25 @@ import (
 	"github.com/hugokishi/go-unleash/internal/driver/logs"
 	unleashDriver "github.com/hugokishi/go-unleash/internal/driver/unleash"
 	"github.com/sirupsen/logrus"
+
+	"github.com/go-playground/validator/v10"
 )
 
 type Unleash struct {
 }
 
+var (
+	validate *validator.Validate
+)
+
 func InitUnleash(config structs.UnleashConfig) *Unleash {
+	validate = validator.New()
+
+	if err := validate.Struct(&config); err != nil {
+		logrus.Error(err)
+		return nil
+	}
+
 	memory.SetVariables(
 		config.AppEnvironment,
 		config.LoggingLevel,
