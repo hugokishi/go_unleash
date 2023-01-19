@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/hugokishi/go_unleash/internal/domain/memory"
+	"github.com/hugokishi/go_unleash/pkg/domain/memory"
 )
 
 func GetPrefix() string {

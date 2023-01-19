@@ -2,7 +2,7 @@ package structs
 
 type UnleashConfig struct {
 	// Refers to the environment that unleash is being configured for (local, development, staging, production)
-	AppEnvironment string `validate:"required,oneof=local' 'development' 'staging' 'production'"`
+	AppEnvironment string `validate:"required,oneof='local' 'development' 'staging' 'production'"`
 	// Refers to the name that will be registered in unleash
 	AppName string `validate:"required"`
 	// Refers to the url of connection with unleash
