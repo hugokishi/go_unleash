@@ -31,7 +31,7 @@ func  main() {
 		},
 	)
 	
-	isEnabled := unClient.IsEnalbed("MY_FLAG")
+	isEnabled := unClient.IsEnabled("MY_FLAG")
 }
 ```
 
