@@ -16,8 +16,8 @@ Sample code:
 package main
 
 import (
-	go_unleash "github.com/hugokishi/go-unleash"
-	"github.com/hugokishi/go-unleash/internal/domain/structs"
+	go_unleash "github.com/hugokishi/go_unleash"
+	"github.com/hugokishi/go_unleash/internal/domain/structs"
 )
 
 func  main() {

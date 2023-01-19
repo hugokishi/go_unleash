@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	"github.com/Unleash/unleash-client-go/v3"
-	"github.com/hugokishi/go-unleash/internal/domain/memory"
-	"github.com/hugokishi/go-unleash/internal/domain/structs"
+	"github.com/hugokishi/go_unleash/internal/domain/memory"
+	"github.com/hugokishi/go_unleash/internal/domain/structs"
 
 	"github.com/Unleash/unleash-client-go/v3/context"
-	"github.com/hugokishi/go-unleash/internal/driver/logs"
-	unleashDriver "github.com/hugokishi/go-unleash/internal/driver/unleash"
+	"github.com/hugokishi/go_unleash/internal/driver/logs"
+	unleashDriver "github.com/hugokishi/go_unleash/internal/driver/unleash"
 	"github.com/sirupsen/logrus"
 
 	"github.com/go-playground/validator/v10"
